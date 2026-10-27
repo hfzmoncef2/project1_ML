@@ -1,0 +1,7 @@
+data/
+cache/
+submission.csv
+__pycache__/
+report/*.aux
+report/*.log
+report/*.out

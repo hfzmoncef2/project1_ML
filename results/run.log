@@ -1,0 +1,14 @@
+Loading data (the CSV parsing takes ~1-2 minutes)...
+Preprocessing...
+  814 features (134 categorical, 42 continuous)
+Training regularised logistic regression (Newton)...
+  newton it  0  loss 0.69315  |step| 1.23e+00
+  newton it  1  loss 0.28165  |step| 2.84e-01
+  newton it  2  loss 0.23304  |step| 1.83e-01
+  newton it  3  loss 0.22168  |step| 1.80e-01
+  newton it  4  loss 0.21971  |step| 1.09e-01
+  newton it  5  loss 0.21954  |step| 2.94e-02
+  newton it  6  loss 0.21954  |step| 1.70e-03
+  newton it  7  loss 0.21954  |step| 8.49e-05
+  decision threshold on the logit: -1.3899 (probability 0.199), training F1 = 0.4354
+Wrote submission.csv: 13.7% predicted positive (152s total)

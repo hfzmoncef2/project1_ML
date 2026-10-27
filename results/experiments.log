@@ -1,0 +1,48 @@
+== Regularisation sweep (Newton logistic regression)
+lambda=1e-06                 F1=0.3831±0.0934 acc=0.8350 AUC=0.8111 (225s)
+lambda=1e-05                 F1=0.4293±0.0058 acc=0.8723 AUC=0.8609 (225s)
+lambda=0.0001                F1=0.4309±0.0059 acc=0.8712 AUC=0.8613 (225s)
+lambda=0.001                 F1=0.4292±0.0056 acc=0.8723 AUC=0.8610 (225s)
+lambda=0.01                  F1=0.4178±0.0041 acc=0.8698 AUC=0.8548 (225s)
+== Baselines from implementations.py (full preprocessing)
+Traceback (most recent call last):
+  File "/root/project1/experiments.py", line 304, in <module>
+    main()
+    ~~~~^^
+  File "/root/project1/experiments.py", line 281, in main
+    run("least_squares", results, x, y, full, closed_form_scorer(least_squares))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/project1/experiments.py", line 155, in run
+    res = cross_validate(x, y, make, fit, k=K_FOLDS, seed=SEED)
+  File "/root/project1/models.py", line 170, in cross_validate
+    s_tr, s_va = fit_scores(y01[tr], f_tr, f_va)
+                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/root/project1/experiments.py", line 100, in fit
+    w, _ = method(y_tr, f_tr64)
+           ~~~~~~^^^^^^^^^^^^^^
+  File "/root/project1/implementations.py", line 155, in least_squares
+    w = np.linalg.solve(tx.T.dot(tx), tx.T.dot(y))
+  File "/usr/local/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 463, in solve
+    r = gufunc(a, b, signature=signature)
+  File "/usr/local/lib/python3.13/site-packages/numpy/linalg/_linalg.py", line 144, in _raise_linalgerror_singular
+    raise LinAlgError("Singular matrix")
+numpy.linalg.LinAlgError: Singular matrix
+== Regularisation sweep (Newton logistic regression)
+== Baselines from implementations.py (full preprocessing)
+least_squares                FAILED: Singular matrix
+ridge_1e-4                   F1=0.4217±0.0056 acc=0.8724 AUC=0.8543 (63s)
+reg_logistic_gd_300it        F1=0.4056±0.0034 acc=0.8596 AUC=0.8478 (531s)
+ridge_raw_features           F1=0.4104±0.0052 acc=0.8708 AUC=0.8442 (52s)
+== Threshold / class-weight study
+thr0.5_unweighted            F1=0.2371±0.0053 acc=0.9145 AUC=0.8613 (248s)
+thr0.5_balanced              F1=0.3781±0.0028 acc=0.7666 AUC=0.8613 (228s)
+balanced_weights_tuned_thr   F1=0.4293±0.0068 acc=0.8716 AUC=0.8613 (232s)
+== Ablation (Newton logistic regression)
+no_one_hot                   F1=0.4262±0.0055 acc=0.8734 AUC=0.8593 (87s)
+no_special_codes             F1=0.4298±0.0068 acc=0.8727 AUC=0.8611 (238s)
+no_log_clip                  F1=0.4298±0.0063 acc=0.8711 AUC=0.8612 (223s)
+no_missing_ind               F1=0.4305±0.0064 acc=0.8727 AUC=0.8614 (207s)
+keep_admin_cols              F1=0.4301±0.0068 acc=0.8734 AUC=0.8611 (286s)
+plus_squares                 F1=0.4311±0.0064 acc=0.8725 AUC=0.8614 (251s)
+raw_features                 F1=0.4153±0.0051 acc=0.8677 AUC=0.8514 (81s)
+figures written to figures/
