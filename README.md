@@ -3,7 +3,7 @@
 Binary classification of MICHD (heart attack / angina / coronary heart disease)
 from 321 answers of the 2015 Behavioral Risk Factor Surveillance System survey,
 using **NumPy only**. Final model: L2-regularised logistic regression trained
-with Newton's method on a 818-dimensional engineered feature set, with an
+with Newton's method on a 814-dimensional engineered feature set, with an
 F1-optimal decision threshold.
 
 ## Repository layout
